@@ -1,0 +1,87 @@
+{
+	"name": "file-organizer",
+	"publisher": "Vvlpine Stvdios",
+	"displayName": "File Organizer",
+	"description": "Organizes file contents based off of config file. Currently only supports limited C#",
+	"version": "0.0.0",
+	"engines": {
+		"vscode": "^1.105.0"
+	},
+	"categories": [
+		"Formatters"
+	],
+	"activationEvents": [
+		"onLanguage:csharp"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "file-organizer.organize",
+				"title": "Organize File"
+			}
+		],
+		"configuration":[
+			{
+				"title": "File Organizer",
+				"properties": {
+					"file-organizer.projectNamespacesLast": {
+						"type": "boolean",
+						"default": true,
+						"description": "Whether or not project namespaces should be pushed to the bottom of the using directive list"
+					},
+					"file-organizer.projectNamespaces": {
+						"type": "array",
+						"default": [
+							"${workspaceFolderBasename}"
+						],
+						"description": "A list of the project namespace names"
+					},
+					"file-organizer.headingTemplate": {
+						"type": "string",
+						"default": "//\n// { NAME }\n//",
+						"description": "A template string that will be put at the beginning of each section, with `{ NAME }` being replaced by the secion name."
+					},
+					"file-organizer.order": {
+						"type": "array",
+						"default": [
+							{ "name": "STATIC VARIABLES",    "filter": "static field|property"    },
+							{ "name": "EXPORT VARIABLES",    "filter": "[Export]"                 },
+							{ "name": "SIGNALS",             "filter": "[Signal]"                 },
+							{ "name": "ENUMS",               "filter": "enum"                     },
+							{ "name": "PUBLIC VARIABLES",    "filter": "public field|property"    },
+							{ "name": "PROTECTED VARIABLES", "filter": "protected field|property" },
+							{ "name": "PRIVATE VARIABLES",   "filter": "private field|property"   },
+							{ "name": "NATIVE FUNCTIONS",    "filter": "prefix:'_' method"        },
+							{ "name": "CUSTOM FUNCTIONS",    "filter": "method"                   },
+							{ "name": "STATIC FUNCTIONS",    "filter": "static method"            }
+						],
+						"description": "A series of paramters indicating what should go where: `prefix:'<prefix>' [<attribute>] <static|public|protected|private> <field|property|enum|method|other> suffix:'<suffix>'`"
+					},
+					"file-organizer.useRegionTags": {
+						"type": "boolean",
+						"default": true,
+						"description": "Wether or not #region <region>/#endregion tags should be used in headers"
+					}
+				}
+			}
+		]
+	},
+	"scripts": {
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./"
+	},
+	"devDependencies": {
+		"@types/emscripten": "^1.41.6",
+		"@types/node": "^26.6.2",
+		"@types/vscode": "^1.105.0",
+		"typescript": "7.0.2"
+	},
+	"dependencies": {
+		"web-tree-sitter": "^0.27.0"
+	},
+	"allowScripts": {
+		"esbuild@0.28.1": true,
+		"emscripten@0.0.2-beta": true
+	}
+}

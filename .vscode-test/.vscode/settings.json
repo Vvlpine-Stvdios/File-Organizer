@@ -1,0 +1,7 @@
+{
+	"file-organizer.projectNamespaces": [
+		"Game"
+	],
+	"file-organizer.headingTemplate": "//\n// { NAME }\n//",
+	"file-organizer.useRegionTags": true
+}

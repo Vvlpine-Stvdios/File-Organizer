@@ -1,0 +1,14 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "es2025",
+		"outDir": "out",
+		"lib": ["ES2025", "DOM"],
+		"sourceMap": true,
+		"rootDir": "src",
+		"strict": true,
+		"esModuleInterop": true,
+		"types": ["vscode", "node", "emscripten"]
+	},
+	"exclude": ["node_modules", ".vscode-test", ".vscode", ".git"]
+}
