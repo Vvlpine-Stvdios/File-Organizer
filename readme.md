@@ -1,24 +1,24 @@
-# File Organizer
+# File Contents Organizer
 This is a rather rudimentary tool to automate organizing file contents. It currently supports C#.
 
 # Configurations
-- `file-organizer.projectNamespacesLast`
-	- Whether or not project namespaces (defined by `file-organizer.projectNamespaces`) should be sorted *last* in the using directives list.
+- `file-contents-organizer.projectNamespacesLast`
+	- Whether or not project namespaces (defined by `file-contents-organizer.projectNamespaces`) should be sorted *last* in the using directives list.
 	- Default: `true`
 
--  `file-organizer.projectNamespaces`
+-  `file-contents-organizer.projectNamespaces`
 	- A list of the names of the project namespaces.
 	- Default: workspace directory
 
-- `file-organizer.headingTemplate`
-	- A string that represents the format of headers. Will replace `${ NAME }` (spaces optional) with the name of the section as defined in `file-organizer.order`.
+- `file-contents-organizer.headingTemplate`
+	- A string that represents the format of headers. Will replace `${ NAME }` (spaces optional) with the name of the section as defined in `file-contents-organizer.order`.
 	- Default: `//\n// ${ NAME }\n//`; results in the following:
 		```C#
 		//
 		// ${ NAME }
 		//
 		```
-- `file-organizer.order`
+- `file-contents-organizer.order`
 	- An array of objects that satisfy two fields:
 		- `name` - the name of this category/section
 		- `filter` - a set of rules that things must meet in order to be sorted into this category:
@@ -38,6 +38,6 @@ This is a rather rudimentary tool to automate organizing file contents. It curre
 		| CUSTOM FUNCTIONS    | `method                    ` |
 		| STATIC FUNCTIONS    | `static method             ` |
 
-- `file-organizer.useRegionTags`
+- `file-contents-organizer.useRegionTags`
 	- Whether or not `#region`/`#endregion` tags should be used in tandem with section headers.
 	- Default: `true`

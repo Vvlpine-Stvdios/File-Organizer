@@ -18,7 +18,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
 	);
 
 	context.subscriptions.push(
-		commands.registerCommand("file-organizer.organize", () => {
+		commands.registerCommand("file-contents-organizer.organize", () => {
 			const editor : TextEditor | undefined = window.activeTextEditor;
 
 			if (!editor) { return; }

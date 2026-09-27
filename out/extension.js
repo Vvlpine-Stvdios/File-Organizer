@@ -12,7 +12,7 @@ async function activate(context) {
             return (0, organizer_1.organizeDocument)(document);
         }
     }));
-    context.subscriptions.push(vscode_1.commands.registerCommand("file-organizer.organize", () => {
+    context.subscriptions.push(vscode_1.commands.registerCommand("file-contents-organizer.organize", () => {
         const editor = vscode_1.window.activeTextEditor;
         if (!editor) {
             return;
