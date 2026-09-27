@@ -1,9 +1,13 @@
 {
 	"name": "file-organizer",
-	"publisher": "Vvlpine Stvdios",
+	"publisher": "VvlpineStvdios",
 	"displayName": "File Organizer",
 	"description": "Organizes file contents based off of config file. Currently only supports limited C#",
 	"version": "0.0.0",
+	"repository": {
+		"type": "git",
+		"directory": "https://github.com/Vvlpine-Stvdios/File-Organizer"
+	},
 	"engines": {
 		"vscode": "^1.105.0"
 	},
